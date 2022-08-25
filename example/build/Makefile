@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named pRNN
+# Target rules for targets named exampleApp
 
 # Build rule for target.
-pRNN: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pRNN
-.PHONY : pRNN
+exampleApp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 exampleApp
+.PHONY : exampleApp
 
 # fast build rule for target.
-pRNN/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pRNN.dir/build.make CMakeFiles/pRNN.dir/build
-.PHONY : pRNN/fast
+exampleApp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/build
+.PHONY : exampleApp/fast
 
-pRNN.o: pRNN.cpp.o
-.PHONY : pRNN.o
+exampleApp.o: exampleApp.cpp.o
+.PHONY : exampleApp.o
 
 # target to build an object file
-pRNN.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pRNN.dir/build.make CMakeFiles/pRNN.dir/pRNN.cpp.o
-.PHONY : pRNN.cpp.o
+exampleApp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/exampleApp.cpp.o
+.PHONY : exampleApp.cpp.o
 
-pRNN.i: pRNN.cpp.i
-.PHONY : pRNN.i
+exampleApp.i: exampleApp.cpp.i
+.PHONY : exampleApp.i
 
 # target to preprocess a source file
-pRNN.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pRNN.dir/build.make CMakeFiles/pRNN.dir/pRNN.cpp.i
-.PHONY : pRNN.cpp.i
+exampleApp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/exampleApp.cpp.i
+.PHONY : exampleApp.cpp.i
 
-pRNN.s: pRNN.cpp.s
-.PHONY : pRNN.s
+exampleApp.s: exampleApp.cpp.s
+.PHONY : exampleApp.s
 
 # target to generate assembly for a file
-pRNN.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pRNN.dir/build.make CMakeFiles/pRNN.dir/pRNN.cpp.s
-.PHONY : pRNN.cpp.s
+exampleApp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/exampleApp.cpp.s
+.PHONY : exampleApp.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... pRNN"
-	@echo "... pRNN.o"
-	@echo "... pRNN.i"
-	@echo "... pRNN.s"
+	@echo "... exampleApp"
+	@echo "... exampleApp.o"
+	@echo "... exampleApp.i"
+	@echo "... exampleApp.s"
 .PHONY : help
 
 

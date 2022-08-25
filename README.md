@@ -40,3 +40,6 @@ Create file like :
 	from build import exampleApp as f
 
 	f.main()
+
+Convert python code to LibTorch : https://pytorch.org/tutorials/advanced/cpp_export.html (test)
+cpp LibTorch : https://pytorch.org/tutorials/advanced/cpp_frontend.html

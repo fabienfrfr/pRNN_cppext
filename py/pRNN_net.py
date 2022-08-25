@@ -21,12 +21,12 @@ class pRNN(nn.Module):
 									 [nn.Sequential(nn.Linear(n[2], n[1]), nn.ReLU()) for n in self.NET[1:]] +
 									 [nn.Sequential(nn.Conv1d(I, I, 1, groups=I, bias=True), nn.ReLU())]).to(DEVICE)
 		# trace data
-		self.trace = (self.NET.shape[0]+1)*[None]
+		self.trace = (len(NET)+1)*[None]
 		# pseudo RNN (virtual input)
 		self.h = [torch.zeros(B,n[1]).to(DEVICE) for n in self.NET] + [torch.zeros(B,I).to(DEVICE)]
 	
 	def graph2net(self, BATCH_, requires_stack = False):
-		trace = (self.NET.shape[0])*[None]
+		trace = (len(self.NET))*[None]
 		# hidden to output (X ordered)
 		for i in np.argsort(self.NET[:, 3]) :
 			tensor = []
@@ -45,7 +45,7 @@ class pRNN(nn.Module):
 		return i, trace
 	
 	def forward(self,x):
-		s = x.shape
+		s = tuple(x.shape)
 		# Generalization of Exploitation or Training batch
 		BATCH_ = np.arange(s[0])
 		# input functionalization (with spread sparsing)
