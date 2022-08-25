@@ -54,16 +54,16 @@ RM = /home/fabienfrfr/.local/lib/python3.5/site-packages/cmake/data/bin/cmake -E
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn
+CMAKE_SOURCE_DIR = /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build
+CMAKE_BINARY_DIR = /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/example-app.dir/all
+all: CMakeFiles/exampleApp.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/example-app.dir/clean
+clean: CMakeFiles/exampleApp.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/example-app.dir
+# Target rules for target CMakeFiles/exampleApp.dir
 
 # All Build rule for target.
-CMakeFiles/example-app.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles --progress-num=1,2 "Built target example-app"
-.PHONY : CMakeFiles/example-app.dir/all
+CMakeFiles/exampleApp.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles --progress-num=1,2 "Built target exampleApp"
+.PHONY : CMakeFiles/exampleApp.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/example-app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/example-app.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles 0
-.PHONY : CMakeFiles/example-app.dir/rule
+CMakeFiles/exampleApp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/exampleApp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles 0
+.PHONY : CMakeFiles/exampleApp.dir/rule
 
 # Convenience name for target.
-example-app: CMakeFiles/example-app.dir/rule
-.PHONY : example-app
+exampleApp: CMakeFiles/exampleApp.dir/rule
+.PHONY : exampleApp
 
 # clean rule for target.
-CMakeFiles/example-app.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/clean
-.PHONY : CMakeFiles/example-app.dir/clean
+CMakeFiles/exampleApp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/clean
+.PHONY : CMakeFiles/exampleApp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

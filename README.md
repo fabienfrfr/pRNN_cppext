@@ -21,10 +21,10 @@ Create file like :
 ```
 	example-app/
   	   CMakeLists.txt
-  	   example-app.cpp
+  	   exampleApp.cpp
 ```
 
-3 - Build in example-app/
+3 - Build in exampleApp/
 
 	mkdir build
 	cd build
@@ -33,4 +33,10 @@ Create file like :
 
 4 - Test your build (in build/) :
 
-	./example-app
+	./exampleApp
+
+5 - Using your builded function in Python
+
+	from build import exampleApp as f
+
+	f.main()

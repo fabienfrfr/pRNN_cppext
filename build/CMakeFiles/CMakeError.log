@@ -1,25 +1,25 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles/CMakeTmp
+Change Dir: /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_1aa5a/fast && /usr/bin/make  -f CMakeFiles/cmTC_1aa5a.dir/build.make CMakeFiles/cmTC_1aa5a.dir/build
-make[1] : on entre dans le répertoire « /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_1aa5a.dir/src.c.o
-/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_1aa5a.dir/src.c.o -c /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_1aa5a
-/home/fabienfrfr/.local/lib/python3.5/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1aa5a.dir/link.txt --verbose=1
-/usr/bin/cc -rdynamic CMakeFiles/cmTC_1aa5a.dir/src.c.o -o cmTC_1aa5a 
-CMakeFiles/cmTC_1aa5a.dir/src.c.o : Dans la fonction « main » :
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0f05f/fast && /usr/bin/make  -f CMakeFiles/cmTC_0f05f.dir/build.make CMakeFiles/cmTC_0f05f.dir/build
+make[1] : on entre dans le répertoire « /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_0f05f.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_0f05f.dir/src.c.o -c /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_0f05f
+/home/fabienfrfr/.local/lib/python3.5/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f05f.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_0f05f.dir/src.c.o -o cmTC_0f05f 
+CMakeFiles/cmTC_0f05f.dir/src.c.o : Dans la fonction « main » :
 src.c:(.text+0x3e) : référence indéfinie vers « pthread_create »
 src.c:(.text+0x4a) : référence indéfinie vers « pthread_detach »
 src.c:(.text+0x56) : référence indéfinie vers « pthread_cancel »
 src.c:(.text+0x67) : référence indéfinie vers « pthread_join »
 src.c:(.text+0x7b) : référence indéfinie vers « pthread_atfork »
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_1aa5a.dir/build.make:98: recipe for target 'cmTC_1aa5a' failed
-make[1]: *** [cmTC_1aa5a] Error 1
-make[1] : on quitte le répertoire « /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles/CMakeTmp »
-Makefile:127: recipe for target 'cmTC_1aa5a/fast' failed
-make: *** [cmTC_1aa5a/fast] Error 2
+CMakeFiles/cmTC_0f05f.dir/build.make:98: recipe for target 'cmTC_0f05f' failed
+make[1]: *** [cmTC_0f05f] Error 1
+make[1] : on quitte le répertoire « /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles/CMakeTmp »
+Makefile:127: recipe for target 'cmTC_0f05f/fast' failed
+make: *** [cmTC_0f05f/fast] Error 2
 
 
 Source file was:
@@ -44,22 +44,22 @@ int main(void)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles/CMakeTmp
+Change Dir: /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_68097/fast && /usr/bin/make  -f CMakeFiles/cmTC_68097.dir/build.make CMakeFiles/cmTC_68097.dir/build
-make[1] : on entre dans le répertoire « /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_68097.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_68097.dir/CheckFunctionExists.c.o -c /home/fabienfrfr/.local/lib/python3.5/site-packages/cmake/data/share/cmake-3.23/Modules/CheckFunctionExists.c
-Linking C executable cmTC_68097
-/home/fabienfrfr/.local/lib/python3.5/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_68097.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_68097.dir/CheckFunctionExists.c.o -o cmTC_68097  -lpthreads 
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3994f/fast && /usr/bin/make  -f CMakeFiles/cmTC_3994f.dir/build.make CMakeFiles/cmTC_3994f.dir/build
+make[1] : on entre dans le répertoire « /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_3994f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_3994f.dir/CheckFunctionExists.c.o -c /home/fabienfrfr/.local/lib/python3.5/site-packages/cmake/data/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3994f
+/home/fabienfrfr/.local/lib/python3.5/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3994f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_3994f.dir/CheckFunctionExists.c.o -o cmTC_3994f  -lpthreads 
 /usr/bin/ld : ne peut trouver -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_68097.dir/build.make:98: recipe for target 'cmTC_68097' failed
-make[1]: *** [cmTC_68097] Error 1
-make[1] : on quitte le répertoire « /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles/CMakeTmp »
-Makefile:127: recipe for target 'cmTC_68097/fast' failed
-make: *** [cmTC_68097/fast] Error 2
+CMakeFiles/cmTC_3994f.dir/build.make:98: recipe for target 'cmTC_3994f' failed
+make[1]: *** [cmTC_3994f] Error 1
+make[1] : on quitte le répertoire « /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles/CMakeTmp »
+Makefile:127: recipe for target 'cmTC_3994f/fast' failed
+make: *** [cmTC_3994f/fast] Error 2
 
 
 

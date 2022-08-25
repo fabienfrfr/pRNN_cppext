@@ -57,10 +57,10 @@ RM = /home/fabienfrfr/.local/lib/python3.5/site-packages/cmake/data/bin/cmake -E
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn
+CMAKE_SOURCE_DIR = /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build
+CMAKE_BINARY_DIR = /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named example-app
+# Target rules for targets named exampleApp
 
 # Build rule for target.
-example-app: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example-app
-.PHONY : example-app
+exampleApp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 exampleApp
+.PHONY : exampleApp
 
 # fast build rule for target.
-example-app/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/build
-.PHONY : example-app/fast
+exampleApp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/build
+.PHONY : exampleApp/fast
 
-example-app.o: example-app.cpp.o
-.PHONY : example-app.o
+exampleApp.o: exampleApp.cpp.o
+.PHONY : exampleApp.o
 
 # target to build an object file
-example-app.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/example-app.cpp.o
-.PHONY : example-app.cpp.o
+exampleApp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/exampleApp.cpp.o
+.PHONY : exampleApp.cpp.o
 
-example-app.i: example-app.cpp.i
-.PHONY : example-app.i
+exampleApp.i: exampleApp.cpp.i
+.PHONY : exampleApp.i
 
 # target to preprocess a source file
-example-app.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/example-app.cpp.i
-.PHONY : example-app.cpp.i
+exampleApp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/exampleApp.cpp.i
+.PHONY : exampleApp.cpp.i
 
-example-app.s: example-app.cpp.s
-.PHONY : example-app.s
+exampleApp.s: exampleApp.cpp.s
+.PHONY : exampleApp.s
 
 # target to generate assembly for a file
-example-app.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/example-app.cpp.s
-.PHONY : example-app.cpp.s
+exampleApp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleApp.dir/build.make CMakeFiles/exampleApp.dir/exampleApp.cpp.s
+.PHONY : exampleApp.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... example-app"
-	@echo "... example-app.o"
-	@echo "... example-app.i"
-	@echo "... example-app.s"
+	@echo "... exampleApp"
+	@echo "... exampleApp.o"
+	@echo "... exampleApp.i"
+	@echo "... exampleApp.s"
 .PHONY : help
 
 

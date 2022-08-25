@@ -1,5 +1,5 @@
-CMakeFiles/example-app.dir/example-app.cpp.o: \
- /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/example-app.cpp \
+CMakeFiles/exampleApp.dir/exampleApp.cpp.o: \
+ /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/exampleApp.cpp \
  /usr/include/stdc-predef.h \
  /home/fabienfrfr/libtorch/include/torch/csrc/api/include/torch/torch.h \
  /home/fabienfrfr/libtorch/include/torch/csrc/api/include/torch/all.h \

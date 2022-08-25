@@ -1,4 +1,4 @@
-# Install script for directory: /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn
+# Install script for directory: /media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libtorch_prnn/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/fabienfrfr/F6166FAF166F7013/0_JOBS/GIT/libTorch_pRNN/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
