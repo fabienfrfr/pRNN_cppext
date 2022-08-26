@@ -25,5 +25,5 @@ traced_script_module.save("traced_enn_model.pt")
 """
 The model trace change following input, jit it's not adapted for convert code to C++
 
-But, can be used for see minimal object necessary in libTorch !
+But, can be used for see minimal object necessary in C++ extension !
 """
