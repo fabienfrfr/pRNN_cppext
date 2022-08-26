@@ -8,4 +8,18 @@ However, there are several possible optimizations, in particular on the restruct
 
 ## [Extension C++](https://pytorch.org/tutorials/advanced/cpp_extension.html) :
 
-1 - 
+1 - Copy folder https://github.com/pytorch/extension-cpp/cpp in example folder (it's composed of 5 files).
+
+2 - Launch ```python3 setup.py build```. That create a build folder composed of your lib. 
+
+	- In case of cuda, you need to set a compatible gcc maximum version. Example : for cuda9, it's gcc6 (max). TIPS : compile with docker (see in my AnimateCV github repository) 
+
+3 - Put ```.so``` in main folder (libname_cpython3Xm-x86_64-linux-gnu.so).
+
+4 - Launch extension in python with  ```import libname```.
+
+tips :
+
+	- use JIT to see step of code
+	- see basic autograd function (see backward)
+	- #include <iostream> for use direct library in Terminal (but need 'main') or C code (see libtorch also).

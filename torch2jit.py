@@ -14,7 +14,7 @@ net = graph.NEURON_LIST#.tolist()
 model = pRNN_net.pRNN(net, BATCH, I, torch.device('cpu'))
 
 # An example input you would normally provide to your model's forward() method.
-example = tensor_in = torch.randn(BATCH,I)
+example = torch.randn(BATCH,I, requires_grad=True)
 
 # Use torch.jit.trace to generate a torch.jit.ScriptModule via tracing.
 output = traced_script_module = torch.jit.trace(model, example)
