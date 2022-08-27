@@ -20,6 +20,10 @@ while len(graph.LIST_C) > 32 or len(graph.NEURON_LIST) < 5 :
 	graph = graph_gen.GRAPH((I,O))
 print("Generate small network for example")
 
+
+List_connection = graph.LIST_C # [Position X, Layers index L, Connection index C]
+Net = graph.NEURON_LIST # []
+
 ### Testing
 import numpy as np 
 
