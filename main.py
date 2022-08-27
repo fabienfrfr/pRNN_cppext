@@ -49,3 +49,8 @@ list_step = xli_list(Net)
 orderForward = np.argsort(list_step[:,0])
 
 forward_step = list_step[orderForward]
+
+"""
+ideas : facilities of real calculation of pytorch
+	LOOP(index to select) # seeing with jit
+"""
