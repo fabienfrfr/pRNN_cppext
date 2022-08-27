@@ -43,18 +43,21 @@ def xli_list(net) :
 		i = 0 
 		for c in n[-1]:
 			# Xi, Xf, Li, Lf, Cj, Oj
-			l += [[net[c[0]][3], n[3], net[c[0]][0], n[0], n[1], i]]
+			if c[0] == 0 :
+				l += [[0, n[3], 0, n[0], n[1], i]]
+			else :
+				l += [[net[c[0]][3], n[3], net[c[0]][0], n[0], n[1], i]]
 			i+=1
 	return np.array(l)
 
 list_step = xli_list(Net)
 
 ### Ordering operation following position (forward)
-orderForward = np.argsort(list_step[:,0])
+orderForward = np.lexsort((list_step[:,-1],list_step[:,1]))
 
 forward_step = list_step[orderForward]
 
 """
-ideas : facilities of real calculation of pytorch
+ideas : facilities of real forward calculation of pytorch
 	LOOP(index to select) # seeing with jit
 """
