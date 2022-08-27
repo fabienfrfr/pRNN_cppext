@@ -8,7 +8,7 @@ I,O = 16,8
 BATCH = 25
 
 graph = graph_gen.GRAPH((I,O))
-while len(graph.LIST_C) > 32 or len(graph.NEURON_LIST) < 3 :
+while len(graph.LIST_C) > 32 or len(graph.NEURON_LIST) < 5 :
 	graph = graph_gen.GRAPH((I,O))
 print("Generate small network for example")
 
