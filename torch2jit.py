@@ -14,6 +14,8 @@ print("Generate small network for example")
 
 net = graph.NEURON_LIST#.tolist()
 
+print(net)
+
 # to trace
 model = pRNN_net.pRNN(net, BATCH, I, torch.device('cpu'))
 model_stacked = pRNN_net.pRNN(net, BATCH, I, torch.device('cpu'), STACK=True)
@@ -21,13 +23,16 @@ model_stacked = pRNN_net.pRNN(net, BATCH, I, torch.device('cpu'), STACK=True)
 # An example input you would normally provide to your model's forward() method.
 example = torch.randn(BATCH,I, requires_grad=True)
 
+tensor = model(example)
+#tensor_stack = model_stacked(example)
+
 # Use torch.jit.trace to generate a torch.jit.ScriptModule via tracing.
 traced_script_module = torch.jit.trace(model, example)
-traced_script_module_stacked = torch.jit.trace(model_stacked, example)
+#traced_script_module_stacked = torch.jit.trace(model_stacked, example)
 
 # save
 traced_script_module.save("traced_enn_model.pt")
-traced_script_module_stacked.save("traced_enn_model_stacked.pt")
+#traced_script_module_stacked.save("traced_enn_model_stacked.pt")
 
 """
 The model trace change following input, jit it's not adapted for convert code to C++
