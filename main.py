@@ -57,6 +57,7 @@ list_step[list_step == -1] = list_step[:,3].max() + 1
 orderForward = np.lexsort((list_step[:,-1],list_step[:,1]))
 
 forward_step = list_step[orderForward]
+prnn_located = forward_step[:,0] > forward_step[:,1]
 
 """
 ideas : facilities of real forward calculation of pytorch
@@ -86,12 +87,50 @@ X = torch.rand(25,I)
 forward = forward_step.tolist()
 
 s = tuple(X.shape)
+trace = [torch.zeros(25,q[-1], requires_grad=True) for q in p]
 
 x = X.view(s[0],s[1],1)
 
-x = Layers[0](x).view(s)
+trace[0] = Layers[0](x).view(s)
 
-trace = []
-for step in forward :
-	trace  += [(step[2],step[-2])]
+forward_step = np.concatenate((forward_step, prnn_located[:,None]), axis=1)
+group_calcul = np.split(forward_step, np.unique(forward_step[:,1], return_index=True)[1][1:])
+
+"""
+for gc in group_calcul :
+	tensor = []
+	for step in gc :
+		if step[-1] == 0 :
+			tensor += [trace[step[2]][:,step[4]][:, None]]
+		else :
+			tensor += [trace[step[2]][:,step[4]][:, None].detach()]
+	tensor = torch.cat(tensor, dim=1)
+	trace[step[3]] = Layers[step[3]](tensor)
 print(trace)
+"""
+### Autograd (see https://pytorch.org/tutorials/beginner/examples_autograd/polynomial_custom_function.html)
+
+class PRNNFunction(torch.autograd.Function):
+	@staticmethod
+	def forward(ctx, trace, group_calcul):
+		print('LA',trace)
+		for gc in group_calcul :
+			tensor = []
+			for step in gc :
+				if step[-1] == 0 :
+					tensor += [trace[step[2]][:,step[4]][:, None]]
+				else :
+					tensor += [trace[step[2]][:,step[4]][:, None].detach()]
+			tensor = torch.cat(tensor, dim=1)
+			trace[step[3]] = Layers[step[3]](tensor)
+		print('ICI',trace)
+		ctx.save_for_backward(*trace)
+		return trace
+
+	@staticmethod
+	def backward(ctx, grad_output):
+		return None
+
+model = PRNNFunction.apply
+print('ICI',trace)
+trace = model(trace, group_calcul)
