@@ -112,8 +112,7 @@ print(trace)
 
 class PRNNFunction(torch.autograd.Function):
 	@staticmethod
-	def forward(ctx, trace, group_calcul):
-		print('LA',trace)
+	def forward(ctx, trace, layers, group_calcul):
 		for gc in group_calcul :
 			tensor = []
 			for step in gc :
@@ -122,15 +121,16 @@ class PRNNFunction(torch.autograd.Function):
 				else :
 					tensor += [trace[step[2]][:,step[4]][:, None].detach()]
 			tensor = torch.cat(tensor, dim=1)
-			trace[step[3]] = Layers[step[3]](tensor)
-		print('ICI',trace)
-		ctx.save_for_backward(*trace)
-		return trace
+			trace[step[3]] = layers[step[3]](tensor)
+		#trace = [t.clone() for t in trace]
+		ctx.save_for_backward(*trace, layers)
+		return trace[-1]
 
 	@staticmethod
 	def backward(ctx, grad_output):
-		return None
+		result, = ctx.saved_tensors
+		grad = tuple([grad_output[i]*result[i] for i in range(len(result))])
+		return grad.clone()
 
-model = PRNNFunction.apply
-print('ICI',trace)
-trace = model(trace, group_calcul)
+out = PRNNFunction.apply(trace, Layers, group_calcul)#.backward()
+print(out) # see why he don't save backwards !
