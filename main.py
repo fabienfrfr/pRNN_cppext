@@ -83,47 +83,61 @@ Layers = nn.ModuleList(  [nn.Sequential(nn.Conv1d(p[0,1], p[0,2], 1, groups=int(
 						 [nn.Linear(p[-1,1], p[-1,2])]) # output
 
 ### Forward test (to index to select to method -> cat t addmm)
-X = torch.rand(25,I)
+X = torch.rand(25,I, requires_grad=True)
 forward = forward_step.tolist()
 
 s = tuple(X.shape)
 trace = [torch.zeros(25,q[-1], requires_grad=True) for q in p]
-
+trace_ = [torch.zeros(25,q[-1], requires_grad=True) for q in p]
 x = X.view(s[0],s[1],1)
-
-trace[0] = Layers[0](x).view(s)
 
 forward_step = np.concatenate((forward_step, prnn_located[:,None]), axis=1)
 group_calcul = np.split(forward_step, np.unique(forward_step[:,1], return_index=True)[1][1:])
+group_calcul = [g.tolist() for g in group_calcul]
 
-"""
+trace[0] = Layers[0](x).view(s)
+trace_[0] = Layers[0](x).view(s)
+
 for gc in group_calcul :
 	tensor = []
 	for step in gc :
 		if step[-1] == 0 :
 			tensor += [trace[step[2]][:,step[4]][:, None]]
+			#grad_fn=<UnsqueezeBackward0>
 		else :
 			tensor += [trace[step[2]][:,step[4]][:, None].detach()]
 	tensor = torch.cat(tensor, dim=1)
 	trace[step[3]] = Layers[step[3]](tensor)
-print(trace)
-"""
-### Autograd (see https://pytorch.org/tutorials/beginner/examples_autograd/polynomial_custom_function.html)
+
+out = trace[-1]
+print(out, out.sum().backward())
+Layers.zero_grad()
+
+# with Autograd (see https://pytorch.org/tutorials/beginner/examples_autograd/polynomial_custom_function.html)
 
 class PRNNFunction(torch.autograd.Function):
 	@staticmethod
 	def forward(ctx, trace, layers, group_calcul):
+		global attribute
+		#ctx.save_for_backward(*trace)
 		for gc in group_calcul :
 			tensor = []
 			for step in gc :
 				if step[-1] == 0 :
-					tensor += [trace[step[2]][:,step[4]][:, None]]
+					tensor += [trace[step[2]].select(1,step[4]).unsqueeze(1)]
+					#requires_grad = True (only, no grad_fn=<UnsqueezeBackward0>...)
+					#torch.autograd.grad(input_, tensor)
 				else :
-					tensor += [trace[step[2]][:,step[4]][:, None].detach()]
+					tensor += [trace[step[2]].select(1,step[4]).unsqueeze(1).detach()]
+					tensor[-1].requires_grad = True
 			tensor = torch.cat(tensor, dim=1)
-			trace[step[3]] = layers[step[3]](tensor)
+			attribute = getattr(layers, str(step[3]))
+			if isinstance(layers[step[3]], torch.nn.Sequential):
+				attribute = getattr(attribute, "0")
+			weight = torch.t(attribute.weight)
+			trace[step[3]] = torch.addmm(attribute.bias, tensor, weight, beta=1, alpha=1)
 		#trace = [t.clone() for t in trace]
-		ctx.save_for_backward(*trace, layers)
+		ctx.save_for_backward(*trace)
 		return trace[-1]
 
 	@staticmethod
@@ -132,5 +146,8 @@ class PRNNFunction(torch.autograd.Function):
 		grad = tuple([grad_output[i]*result[i] for i in range(len(result))])
 		return grad.clone()
 
-out = PRNNFunction.apply(trace, Layers, group_calcul)#.backward()
-print(out) # see why he don't save backwards !
+#out_ = PRNNFunction.apply(trace, Layers, group_calcul)#.backward()
+layers_p = [p for p in Layers.parameters()]
+
+out_ = PRNNFunction.apply(trace_, Layers, group_calcul)#.backward()
+print(out_) # see why he don't save backwards ! https://pytorch.org/docs/stable/notes/extending.html
