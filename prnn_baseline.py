@@ -44,6 +44,7 @@ class PRNNFunction(Function):
 					tensor += [trace[step[2]].select(1,step[4]).unsqueeze(1).detach()]
 					tensor[-1].requires_grad = True
 			tensor = torch.cat(tensor, dim=1)
+			## here, extract weight and biais before forward ! forward become "input:trace, weight, bias" (like example in https://pytorch.org/docs/stable/notes/extending.html#extending-autograd and https://pytorch.org/tutorials/advanced/cpp_extension.html)
 			attribute = getattr(layers, str(step[3]))
 			if isinstance(layers[step[3]], torch.nn.Sequential):
 				attribute = getattr(attribute, "0")
@@ -56,15 +57,26 @@ class PRNNFunction(Function):
 
 	@staticmethod
 	def backward(ctx, grad_output):
-		result, = ctx.saved_tensors
+		trace = ctx.saved_tensors
+		print('grad_fn',trace[-1])
+		grad_trace = [None for i in range(len(trace))]
 		'''
 		here, construct all backward operation
 		it's here to find "grad_fn" part, and that explain why you don't have "grad_fn" in forward staticmethod !
 		NEED REFLEXION HERE
 		'''
-		grad = tuple([grad_output[i]*result[i] for i in range(len(result))])
+
+		#grad = tuple([grad_output[i]*result[i] for i in range(len(result))])
 		#grad = prnn_cpp.backward(tuple([grad_output[i]*result[i] for i in range(len(result))]))
-		return grad
+		"""
+		if ctx.needs_input_grad[0]:
+			grad_input = grad_output.mm(weight)
+		if ctx.needs_input_grad[1]:
+			grad_weight = grad_output.t().mm(input)
+		if bias is not None and ctx.needs_input_grad[2]:
+			grad_bias = grad_output.sum(0)
+		"""
+		return grad_trace
 
 
 class pRNN(nn.Module):
