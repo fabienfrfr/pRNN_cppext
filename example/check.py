@@ -32,7 +32,7 @@ def get_grads(variables):
 
 def check_forward(variables, with_cuda, verbose):
     baseline_values = py_based.lltm_baseline.LLTMFunction.apply(*variables)
-    print(baseline_values)
+    print('baseline ok ? variables = [X, W, b, h, C] -> [d_input, d_weights, d_bias, d_old_h, d_old_cell] : TUPLE !', baseline_values)
     cpp_values = cpp.lltm.LLTMFunction.apply(*variables)
 
     print('Forward: Baseline (py_based) vs. C++ ... ', end='')
@@ -48,7 +48,7 @@ def check_forward(variables, with_cuda, verbose):
 
 def check_backward(variables, with_cuda, verbose):
     baseline_values = py_based.lltm_baseline.LLTMFunction.apply(*variables)
-    print(baseline_values)
+    print('baseline ok ? variables = [X, W, b, h, C] ', baseline_values)
     (baseline_values[0] + baseline_values[1]).sum().backward()
     grad_baseline = get_grads(variables)
 
