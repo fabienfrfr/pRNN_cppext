@@ -57,9 +57,14 @@ class PRNNFunction(Function):
 	@staticmethod
 	def backward(ctx, grad_output):
 		result, = ctx.saved_tensors
+		'''
+		here, construct all backward operation
+		it's here to find "grad_fn" part, and that explain why you don't have "grad_fn" in forward staticmethod !
+		NEED REFLEXION HERE
+		'''
 		grad = tuple([grad_output[i]*result[i] for i in range(len(result))])
 		#grad = prnn_cpp.backward(tuple([grad_output[i]*result[i] for i in range(len(result))]))
-		return grad.clone()
+		return grad
 
 
 class pRNN(nn.Module):
