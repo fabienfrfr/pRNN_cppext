@@ -65,7 +65,6 @@ ideas : facilities of real forward calculation of pytorch
 """
 
 ### Layers
-Layers = np.zeros(())
 real_out = np.unique(list_step[:,[2,-2]], axis=0)
 out_layers = np.unique(real_out[:,0], return_counts=True)
 in_layers = np.unique(list_step[:,3], return_counts=True)

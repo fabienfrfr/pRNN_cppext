@@ -27,8 +27,9 @@ def d_elu(z, alpha=1.0):
 class LLTMFunction(Function):
     @staticmethod
     def forward(ctx, input, weights, bias, old_h, old_cell):
+        print(input)
         X = torch.cat([old_h, input], dim=1)
-
+        print('with grad ?',X)
         gate_weights = F.linear(X, weights, bias)
         gates = gate_weights.chunk(3, dim=1)
 
@@ -47,6 +48,7 @@ class LLTMFunction(Function):
     @staticmethod
     def backward(ctx, grad_h, grad_cell):
         X, weights, input_gate, output_gate, old_cell = ctx.saved_variables[:5]
+        print('backward with grad ?',X)
         new_cell, candidate_cell, gate_weights = ctx.saved_variables[5:]
 
         d_input = d_weights = d_bias = d_old_h = d_old_cell = None
